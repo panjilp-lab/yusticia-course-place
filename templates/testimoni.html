@@ -30,26 +30,27 @@
 </fieldset>
 </form>
 </div>!--->
-<form class="form" action="{{url_for('pagetestimoni')}}" method="post"> 
-   
-  <p class="name"> 
-        <input type="text" name="nama" id="nama" /> 
-        <label for="name">Name</label> 
-    </p> 
-   
-    <p class="email"> 
-        <input type="text" name="author" id="author" /> 
-        <label for="email">E-mail</label> 
-    </p> 
-   
-   
-    <p class="text"> 
-        <textarea name="content" id="content"></textarea> 
-    </p> 
-   
-    <p class="submit"> 
-        <input type="submit" value="Send" /> 
-    </p> 
-   
+<form class="form" action="{{url_for('pagetestimoni')}}" method="post">
+
+  <p class="name">
+        <input type="text" name="nama" id="nama" />
+        <label for="name">Name</label>
+    </p>
+
+    <p class="email">
+        <input type="text" name="author" id="author" />
+        <label for="email">E-mail</label>
+    </p>
+
+
+    <p class="text">
+        <textarea name="content" id="content"></textarea>
+        <label for="content">content</label>
+    </p>
+
+    <p class="submit">
+        <input type="submit" value="Send" />
+    </p>
+
 </form>
 {% endblock %}

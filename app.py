@@ -12,6 +12,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, FileField, PasswordField, BooleanField, SelectMultipleField, ValidationError
 from wtforms.validators import Required, Length, Email, Regexp, EqualTo
 from flask_migrate import Migrate, MigrateCommand
+from flask_heroku import Heroku
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -20,6 +21,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres:///guruku'
 app.config['SECRET_KEY'] = 'whoa there'
 
 manager = Manager(app)
+heroku = Heroku(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db) # For database use/updating
 manager.add_command('db', MigrateCommand)
