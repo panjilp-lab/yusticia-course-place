@@ -1,5 +1,6 @@
 import os
 import json
+import psycopg2
 from datetime import datetime
 from models import Question
 from flask import Flask, render_template, redirect, url_for, send_file, flash, request, session
