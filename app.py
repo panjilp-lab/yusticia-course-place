@@ -82,6 +82,7 @@ class User(UserMixin, db.Model):
 def load_user(user_id):
     return User.query.get(int(user_id)) # returns User object or None
 
+
 ##### Set up Forms #####
 
 class RegistrationForm(FlaskForm):
