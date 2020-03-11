@@ -50,7 +50,6 @@ manager.add_command("shell", Shell(make_context=make_shell_context))
 """
 
 class BlogPost(db.Model):
-    __tablename__ = 'blogposts'
     id = db.Column(db.Integer, primary_key=True)
     nama = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)
