@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Post</title>
+{% endblock %}
+
+{% block body %}
+
+  <!---<h2> create new blog post:</h2>
+  <form action="{{ url_for('pagetestimoni')}}" method='POST'>
+    Title: <input type='text' name='nama' id='nama'>
+    <br>
+    Post: <input type='text' name='content' id='content'>
+    <br>
+    Author:<input type="text" name="author" id="author">
+    <br>
+    <input type='submit' value="Post">
+  </form>!--->
+
+<hr>
+<!---<div class="form-style-3">
+<form action="{{url_for('pagetestimoni')}}" method="post">
+<fieldset><legend>Tulis nama dan Testimoni kamu</legend>
+  <label for="field1"><span>Nama <span class="required">*</span></span><input type="text" class="input-field" name="nama" id="nama" /></label>
+    <label for="field1"><span>Jurusan <span class="required">*</span></span><input type="text" class="input-field" name="author" id="author" /></label>
+</fieldset>
+<fieldset><legend>Message</legend>
+  <label for="field6"><span>Pesan dan Kesan <span class="required">*</span></span><textarea name="content" id="content"class="textarea-field"></textarea></label>
+  <label><span>&nbsp;</span><input type="submit" value="Post"/></label>
+</fieldset>
+</form>
+</div>!--->
+<form class="form" action="{{url_for('pagetestimoni')}}" method="post"> 
+   
+  <p class="name"> 
+        <input type="text" name="nama" id="nama" /> 
+        <label for="name">Name</label> 
+    </p> 
+   
+    <p class="email"> 
+        <input type="text" name="author" id="author" /> 
+        <label for="email">E-mail</label> 
+    </p> 
+   
+   
+    <p class="text"> 
+        <textarea name="content" id="content"></textarea> 
+    </p> 
+   
+    <p class="submit"> 
+        <input type="submit" value="Send" /> 
+    </p> 
+   
+</form>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Post</title>
+{% endblock %}
+
+{% block body %}
+
+
+<h1> Semua Testimoni</h1>
+  {% for post in posts %}
+  <div class="testimonials">
+      <div class="inner">
+        <h1>Testimonials</h1>
+        <div class="border"></div>
+
+        <div class="row">
+          <div class="col">
+            <div class="testimonial">
+              <img src="static/foto/testi.jpg" alt="">
+              <div class="name">{{ post.nama }}</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+
+              <p>
+                {{ post.content }}<br>
+
+              </p>
+                <small>{{ post.date_posted }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!---<h2>{{ post.nama }}</h2>
+
+    {% if post.author %}
+    <h3>Posted By:{{ post.author }}</h3>
+    {% else %}
+    <h3> by: N/A<h3>
+    {% endif %}
+
+    <p>{{ post.content }}</p>
+    <a href="/posts/delete/{{post.id}}">Delete</a>
+    <a href="/posts/edit/{{post.id}}">Edit</a>
+!--->
+    {% endfor %}
+
+{% endblock %}

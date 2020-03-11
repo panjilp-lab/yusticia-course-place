@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+  <label>Question Bank</label>  
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Pilihan</th>
+          <th>Kategori</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for item in quiz_bank %}
+        <tr>
+          <td>{{item['name']}}</td>
+          <td>{{item['category']}}</td>
+          <th><a href="/takequiz/{{item['f_name']}}" class="button-primary">Coba Kuis</a></th>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

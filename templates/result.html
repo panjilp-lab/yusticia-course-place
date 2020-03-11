@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <form action="/" method="get">
+      <label><i>{{current_user.username}}</i> ini nilai kamu : {{score}} </label>
+      <button type="submit" class="button-primary">Back to Questions</button>
+    </form>
+  </div>
+{% endblock %}

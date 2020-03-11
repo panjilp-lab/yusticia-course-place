@@ -1,0 +1,15 @@
+[
+    {
+        "f_name" : "quiz1",
+        "name": "Teknik Komputer dan Jaringan",
+        "category": "Teknologi"
+
+    },
+    {
+        "f_name" : "quiz2",
+        "name": "Komputer Perkantoran",
+        "category": "Teknologi"
+    }
+
+
+]

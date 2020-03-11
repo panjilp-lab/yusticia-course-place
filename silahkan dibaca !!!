@@ -1,0 +1,18 @@
+Website ini dibuat tanpa CMS dan dengan bahasa pemrograman:
+-Python 3.8.0
+-Flask Framework 1.1.1
+-werkzeug 0.16.0
+-SQLAlchemy untuk ORM
+-SQLite untuk database
+-Css + HTML untuk tampilan Frontend
+-Jinja versi 2 untuk Template
+
+Siswa harus membuat akun terlebih dahulu pada tombol Daftar
+dan nantinya akan muncul Tombol daftar sebagai Peserta Pelatihan di halaman awal Website.
+Klik tombol Daftar Sebagai Peserta yang nantinya desediakan Google Form untuk mengisi data lengkap.
+
+Klik Soal untuk mencoba latihan soal dan Download untuk mengunduh Modul.
+
+Alur = Buat Akun -> Isi Formulir -> Download Modul -> Mengerjakan latihan
+Google Form tidak disimpan diluar (catatan harus buat akun dulu), bertujuan untuk hanya calon peserta
+yang serius menjadi peserta pelatihan yang dapat mengisi google form tersebut. meminimalisir orang jail.

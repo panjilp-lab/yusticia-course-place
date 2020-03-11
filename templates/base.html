@@ -1,0 +1,62 @@
+<html>
+  <head>
+    {% block title %}
+      <title>Hallo everyone</title>
+    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <script src="/static/js/script.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+  </head>
+    <body>
+      <div class="topnav" id="myTopnav">
+          <a href="{{ url_for('index') }}">Home</a>
+          <div class="menu-malasngoding">
+          <li class="dropdown"><a href="#">Tentang LKP Justicia</a>
+				<ul class="isi-dropdown">
+					<li><a href="{{url_for('visimisi')}}">Visi Misi</a></li>
+					<li><a href="{{url_for('struktur')}}">Struktur Organisasi</a></li>
+					<li><a href="{{url_for('instruktur')}}">Instruktur</a></li>
+                    <li><a href="{{url_for('foto')}}">Foto-Foto</a></li>
+				</ul>
+			</li>
+
+          <a href="{{ url_for('hasiltesti') }}">Hasil Testimoni</a>
+
+          {% if current_user.is_authenticated %}
+            <div class="dropdown"><a href="#">Soal & Modul</a>
+              <ul class="isi-dropdown">
+                <li><a href="{{url_for('soal')}}">Soal</a></li>
+                  <li><a href="{{url_for('download')}}">Download</a></li>
+                </ul>
+            </div>
+          <a href="{{ url_for('pagetestimoni') }}">Buat Testimoni</a>
+          <a href="{{ url_for('logout') }}">Logout {{current_user.username}}</a>
+          {% else %}
+          <a href="{{ url_for('login') }}">Login</a>
+          {% endif %}
+          <a href="{{ url_for('register') }}">Daftar</a>
+
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+          </a>
+      </div>
+        </div>
+
+      {% block body %}
+      {% endblock %}
+      <div style="position:fixed;left:20px;bottom:60px;">
+      <a href="https://api.whatsapp.com/send?phone=+6285799591597&text=Halo">
+      <button style="background:#32C03C;vertical-align:center;height:36px;border-radius:50px">
+      <img src="https://web.whatsapp.com/img/favicon/1x/favicon.png"> </button></a>
+      </div>
+    {% block footer %}
+        <div class="footer">
+  <p>&copy;LPK Justicia Komputer</p>
+</div>
+    {% endblock %}
+    </body>
+</html>
