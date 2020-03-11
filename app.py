@@ -18,7 +18,7 @@ from flask_heroku import Heroku
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/guruku'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jlgfvpgjttfcfb:e4b12b906ca1c24206518a932ba3fc7ce5200b3088eb33bda5c6b182daa7f017@ec2-34-206-252-187.compute-1.amazonaws.com:5432/d30kapn9hkf6lb'
 app.config['SECRET_KEY'] = 'whoa there'
 
 manager = Manager(app)
