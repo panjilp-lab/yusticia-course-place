@@ -1,2 +1,2 @@
 # yusticia-course-place
-this is first project built with Python and Flask Framework and lanunched at 2019
+this is the first project built with Python and Flask Framework and lanunched at 2019
