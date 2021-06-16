@@ -5,9 +5,59 @@
 {% endblock %}
 
 {% block body %}
-<p>Menjadi Lembaga Kursus dan
-Pelatihan yang unggul dalam
-pengembangan dan pembekalan
-calon tenaga kerja yang siap terjun
-kedunia usaha dan dunia industri.</p>
+
+<div class="slideshow-container">
+
+<div class="mySlides">
+  <q>Menjadi Lembaga Kursus dan
+  Pelatihan yang unggul dalam
+  pengembangan dan pembekalan
+  calon tenaga kerja yang siap terjun
+  kedunia usaha dan dunia industri</q>
+  <p class="author">- LKP Justicia Komputer</p>
+</div>
+
+<div class="mySlides">
+  <q>Never Give Up and don't stop learning</q>
+  <p class="author">- LKP Justicia</p>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+
+<div class="dot-container">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
 {% endblock %}

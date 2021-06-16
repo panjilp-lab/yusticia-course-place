@@ -7,7 +7,7 @@
     "opt3":"California",
     "opt4":"North Dakota",
     "ans": "1"
-}, 
+},
 {
     "id": "1",
     "ques":"Which state shares a land border with Canada?",
@@ -16,7 +16,7 @@
     "opt3":"Montana",
     "opt4":"South Dakota",
     "ans": "3"
-}, 
+},
 {
     "id": "2",
     "ques":"Which state\"s capital is Trenton?",
@@ -25,7 +25,7 @@
     "opt3":"California",
     "opt4":"North Dakota",
     "ans": "2"
-}, 
+},
 {
     "id": "3",
     "ques":"Phoenix is the capital of which state?",
@@ -43,5 +43,23 @@
     "opt3":"Mississippi",
     "opt4":"North Dakota",
     "ans":"3"
+},
+{
+    "id": "5",
+    "ques":"Dimana kota ciamis?",
+    "opt1":"jabar",
+    "opt2":"Texas",
+    "opt3":"Mississippi",
+    "opt4":"North Dakota",
+    "ans":"1"
+},
+{
+    "id": "6",
+    "ques":"Jogjakarta perada di Provinsi?",
+    "opt1":"Jateng",
+    "opt2":"Texas",
+    "opt3":"Mississippi",
+    "opt4":"North Dakota",
+    "ans":"1"
 }
 ]

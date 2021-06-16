@@ -4,22 +4,22 @@ import psycopg2
 import sys
 from datetime import datetime
 from models import Question
-from flask import Flask, render_template, redirect, url_for, send_file, flash, request, session
+from flask import Flask, render_template, redirect, url_for, send_file, flash, request, session, abort
+from flask import Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager
 from flask_login import LoginManager, login_required, logout_user, login_user, UserMixin, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_script import Manager, Shell
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, FileField, PasswordField, BooleanField, SelectMultipleField, ValidationError
-from wtforms.validators import Required, Length, Email, Regexp, EqualTo
 from flask_migrate import Migrate, MigrateCommand
 from flask_heroku import Heroku
+from forms import *
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jlgfvpgjttfcfb:e4b12b906ca1c24206518a932ba3fc7ce5200b3088eb33bda5c6b182daa7f017@ec2-34-206-252-187.compute-1.amazonaws.com:5432/d30kapn9hkf6lb'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///guruku.sqlite'
 app.config['SECRET_KEY'] = 'whoa there'
 
 manager = Manager(app)
@@ -48,69 +48,13 @@ manager.add_command("shell", Shell(make_context=make_shell_context))
     def __repr__(self):
         return self.id
 """
-
-class BlogPost(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nama = db.Column(db.String(100), nullable=False)
-    content = db.Column(db.Text, nullable=False)
-    author = db.Column(db.String(30), nullable=False, default='N/A')
-    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-
-    def __repr__(self):
-        return 'Blog post' + str(self.id)
-
-class User(UserMixin, db.Model):
-    __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(255), unique=True, index=True)
-    email = db.Column(db.String(64), unique=True, index=True)
-    alamat = db.Column(db.String(60))
-    password_hash = db.Column(db.String(128))
-
-    @property
-    def password(self):
-        raise AttributeError('password is not a readable attribute')
-
-    @password.setter
-    def password(self, password):
-        self.password_hash = generate_password_hash(password)
-
-    def verify_password(self, password):
-        return check_password_hash(self.password_hash, password)
-
-## DB load function
-## Necessary for behind the scenes login manager that comes with flask_login capabilities! Won't run without this.
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id)) # returns User object or None
-
-
 ##### Set up Forms #####
 
-class RegistrationForm(FlaskForm):
-    email = StringField('Email:', validators=[Required(),Length(1,64),Email()])
-    username = StringField('Username:',validators=[Required(),Length(1,64),Regexp('^[A-Za-z][A-Za-z0-9_.]*$',0,'email')])
-    alamat = StringField('Alamat:',validators=[Required(),Length(1,64),Regexp('^[A-Za-z][A-Za-z0-9_.]*$',0,'Usernames must have only letters, numbers, dots or underscores')])
-    password = PasswordField('Password:',validators=[Required(),EqualTo('password2',message="Passwords must match")])
-    password2 = PasswordField("Confirm Password:",validators=[Required()])
-    submit = SubmitField('Register User')
-
-    #Additional checking methods for the form
-    def validate_email(self,field):
-        if User.query.filter_by(email=field.data).first():
-            raise ValidationError('Email already registered.')
-
-    def validate_username(self,field):
-        if User.query.filter_by(username=field.data).first():
-            raise ValidationError('Username already taken')
-
-class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[Required(), Length(1,64), Email()])
-    password = PasswordField('Password', validators=[Required()])
-    remember_me = BooleanField('Keep me logged in')
-    submit = SubmitField('Log In')
-
 ## Error handling routes
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
@@ -179,7 +123,7 @@ def login():
         if user is not None and user.verify_password(form.password.data):
             login_user(user, form.remember_me.data)
             return redirect(request.args.get('next') or url_for('index'))
-        flash('Invalid username or password.')
+        flash('Pastikan Huruf Besar dan Kecil sama')
     return render_template('login.html',form=form)
 
 @app.route('/logout')
@@ -239,6 +183,11 @@ def instruktur():
 def foto():
     return render_template('foto.html')
 
+@app.route('/jurusan')
+def jurusan():
+    return render_template('jurusan.html')
+
 if __name__=='__main__':
+    from config import db
     db.create_all()
     app.run(debug=True)

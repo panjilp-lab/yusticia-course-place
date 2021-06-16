@@ -1,5 +1,4 @@
 import json
-
 # class Question reads a file and holds a list object
 class Question(object):
 

@@ -13,6 +13,7 @@
   </head>
     <body>
       <div class="topnav" id="myTopnav">
+
           <a href="{{ url_for('index') }}">Home</a>
           <div class="menu-malasngoding">
           <li class="dropdown"><a href="#">Tentang LKP Justicia</a>
@@ -20,7 +21,8 @@
 					<li><a href="{{url_for('visimisi')}}">Visi Misi</a></li>
 					<li><a href="{{url_for('struktur')}}">Struktur Organisasi</a></li>
 					<li><a href="{{url_for('instruktur')}}">Instruktur</a></li>
-                    <li><a href="{{url_for('foto')}}">Foto-Foto</a></li>
+          <li><a href="{{url_for('foto')}}">Foto-Foto</a></li>
+          <li><a href="{{url_for('jurusan')}}">Jurusan</a></li>
 				</ul>
 			</li>
 
@@ -38,8 +40,9 @@
           {% else %}
           <a href="{{ url_for('login') }}">Login</a>
           {% endif %}
+          {% if not current_user.is_authenticated %}
           <a href="{{ url_for('register') }}">Daftar</a>
-
+          {% endif %}
           <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
           </a>
@@ -48,8 +51,8 @@
 
       {% block body %}
       {% endblock %}
-      <div style="position:fixed;left:20px;bottom:60px;">
-      <a href="https://api.whatsapp.com/send?phone=+6285799591597&text=Halo">
+      <div style="position:fixed;right:20px;bottom:60px;">
+      <a href="https://api.whatsapp.com/send?phone=+6285799591597&text=Hallo LKP Justicia">
       <button style="background:#32C03C;vertical-align:center;height:36px;border-radius:50px">
       <img src="https://web.whatsapp.com/img/favicon/1x/favicon.png"> </button></a>
       </div>
